@@ -1,0 +1,688 @@
+/**
+ * Admin styles for BBH Security Insight.
+ *
+ * @since 1.0.0
+ * @package BBHSecurityInsight
+ */
+
+/* ==========================================================================
+   Layout & Intro
+   ========================================================================== */
+
+.bbhsecins-wrap {
+    max-width: 99.5%;
+}
+.bbhsecins-wrap p {
+    font-size: 15px !important;
+}
+.bbhsecins-intro {
+    margin:0 auto;
+}
+
+.bbhsecins-intro p {
+    margin: 0 0 16px;
+    color: #3c434a;
+}
+.bbhsecins-audit-panel {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin-top: 20px;
+}
+.bbhsecins-intro .button-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bbhsecins-intro .spinner {
+    float: none;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.bbhsecins-last-run {
+    margin-top: 12px !important;
+    font-style: italic;
+    color: #787c82;
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+}
+p#bbhsecins-last-run {
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+
+.bbhsecins-loading {
+    padding: 40px 20px;
+    text-align: center;
+    color: #787c82;
+    font-size: 14px;
+}
+
+.bbhsecins-loading::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23787c82" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg>');
+    background-size: 24px;
+    animation: bbhsecins-spin 1s linear infinite;
+}
+
+@keyframes bbhsecins-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* ==========================================================================
+   Header design
+   ========================================================================== */
+.bbgsecinshead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    margin: 0 1px;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+.bbgsecinshead h1 {
+    font-size: 2rem;
+    line-height: 50px;
+    margin: 0;
+    color: #fff !important;
+}
+/* ==========================================================================
+   Score Card
+   ========================================================================== */
+
+.bbhsecins-score-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-left-width: 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.bbhsecins-score-card.bbhsecins-critical {
+    border-left-color: #d63638;
+}
+
+.bbhsecins-score-card.bbhsecins-warning {
+    border-left-color: #dba617;
+}
+
+.bbhsecins-score-card.bbhsecins-safe {
+    border-left-color: #46b450;
+}
+
+.bbhsecins-score-circle {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-align: center;
+}
+
+.bbhsecins-critical .bbhsecins-score-circle {
+    background: #fcf0f1;
+    color: #d63638;
+    border: 4px solid #d63638;
+}
+
+.bbhsecins-warning .bbhsecins-score-circle {
+    background: #fcf9e8;
+    color: #996800;
+    border: 4px solid #dba617;
+}
+
+.bbhsecins-safe .bbhsecins-score-circle {
+    background: #edfaef;
+    color: #2c6f2c;
+    border: 4px solid #46b450;
+}
+
+.bbhsecins-score-number {
+    font-size: 36px;
+    line-height: 1;
+    display: block;
+}
+
+.bbhsecins-score-label {
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
+}
+
+.bbhsecins-score-info {
+    flex: 1;
+}
+
+.bbhsecins-score-info h2 {
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.bbhsecins-score-info p {
+    margin: 0 0 4px;
+    color: #50575e;
+}
+
+.bbhsecins-score-desc {
+    font-size: 13px;
+    line-height: 1.5;
+}
+p.bbhsencins-score-note{
+    margin: 8px 0 0;
+    font-size: 11px;
+    color: #171718;
+    border: 1px solid #8b8903;
+    border-radius: 3px;
+    background: #fcf9e8;
+    padding: 6px 10px;
+    width: fit-content;
+}
+table.widefat.bbhsecins-checks-table tbody tr td {
+    border-bottom: 0.1px solid #ccc;
+    align-items: center;
+    align-content: start !important;
+}
+/* ==========================================================================
+   Checks Table
+   ========================================================================== */
+
+.bbhsecins-checks-table {
+    margin-top: 0;
+    border-collapse: collapse;
+}
+
+.bbhsecins-checks-table th {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.bbhsecins-col-status {
+    width: 90px;
+}
+
+.bbhsecins-col-check {
+    width: 22%;
+}
+
+.bbhsecins-col-detail {
+    width: 36%;
+}
+
+.bbhsecins-col-recommendation {
+    width: 32%;
+}
+
+.bbhsecins-check-row td {
+    vertical-align: top;
+    padding: 14px 10px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Risk Badges
+   ========================================================================== */
+
+.bbhsecins-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.bbhsecins-badge.bbhsecins-critical {
+    background: #fcf0f1;
+    color: #d63638;
+    border: 1px solid #e8aaab;
+}
+
+.bbhsecins-badge.bbhsecins-warning {
+    background: #fcf9e8;
+    color: #996800;
+    border: 1px solid #f0c33c;
+}
+
+.bbhsecins-badge.bbhsecins-safe {
+    background: #edfaef;
+    color: #2c6f2c;
+    border: 1px solid #b8e6bf;
+}
+
+/* ==========================================================================
+   Current Value
+   ========================================================================== */
+
+.bbhsecins-current-value {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 2px 8px;
+    background: #f0f0f1;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #50575e;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Risk row subtle background tinting */
+.bbhsecins-risk-critical td {
+    background: #fcf0f1;
+}
+
+.bbhsecins-risk-warning td {
+    background: #fcf9e8;
+}
+
+/* ==========================================================================
+   History Panel
+   ========================================================================== */
+
+.bbhsecins-history-panel {
+    margin: 24px 0;
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.bbhsecins-history-header h2 {
+    margin: 0 0 16px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.bbhsecins-history-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.bbhsecins-history-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+.bbhsecins-history-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #787c82;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 3px #a1a1a1;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.bbhsecins-history-value {
+    display: block;
+    font-size: 13px;
+    color: #3c434a;
+    padding: 5px 10px;
+}
+span.bbhsecins-history-value.bbhsecins-history-frequency {
+    width: fit-content;
+     background: #e5ebe6;
+     border-radius: 3px;
+     font-family: 'Courier New', Courier, monospace;
+     border-left: 3px solid #979797;
+}
+.bbhsecins-history-sub {
+    display: block;
+    font-size: 11px;
+    color: #787c82;
+    margin-top: 2px;
+}
+
+.bbhsecins-history-scans {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bbhsecins-history-entry {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.bbhsecins-entry-critical {
+    background: #fcf0f1;
+    border-left: 3px solid #d63638;
+}
+
+.bbhsecins-entry-warning {
+    background: #fcf9e8;
+    border-left: 3px solid #dba617;
+}
+
+.bbhsecins-entry-safe {
+    background: #edfaef;
+    border-left: 3px solid #46b450;
+}
+
+.bbhsecins-entry-score {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.bbhsecins-entry-date {
+    color: #50575e;
+}
+
+/* ==========================================================================
+   Needs Manual Review Badge
+   ========================================================================== */
+
+.bbhsecins-review-badge {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: #fcf9e8;
+    color: #996800;
+    border: 1px solid #f0c33c;
+}
+
+/* ==========================================================================
+   Evidence Panel (collapsible details inside description)
+   ========================================================================== */
+
+.bbhsecins-evidence-container {
+    margin-top: 12px;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 8px;
+}
+
+.bbhsecins-evidence-details {
+    margin: 4px 0;
+    padding: 6px 10px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.bbhsecins-evidence-details summary {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.bbhsecins-evidence-details summary strong {
+    color: #3c434a;
+}
+
+.bbhsecins-evidence-details ul {
+    margin: 6px 0 6px 16px;
+    list-style: disc;
+}
+
+.bbhsecins-evidence-details li {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #50575e;
+}
+
+.bbhsecins-evidence-details p {
+    margin: 4px 0;
+}
+
+/* ==========================================================================
+   Confidence Level Badge
+   ========================================================================== */
+
+.bbhsecins-confidence {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bbhsecins-confidence-high_risk {
+    background: #fcf0f1;
+    color: #d63638;
+    border: 1px solid #e8aaab;
+}
+
+.bbhsecins-confidence-suspicious {
+    background: #fcf9e8;
+    color: #996800;
+    border: 1px solid #f0c33c;
+}
+
+/* ==========================================================================
+   Disclaimer
+   ========================================================================== */
+
+.bbhsecins-disclaimer {
+    margin-top: 8px !important;
+    padding: 6px 10px;
+    background: #fcf9e8;
+    border-left: 3px solid #dba617;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #50575e;
+    border-radius: 2px;
+}
+p.bbhsecins-disclaimer {
+    padding: 5px !important;
+    text-align: justify !important;
+    background: #e5e4e0;
+}
+/* ==========================================================================
+    Fix for shield icon alignment in WP 6.4+
+   ========================================================================== */
+span.dashicons.dashicons-shield.runsecurityicon {
+    line-height: 1 !important;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.bbhsecins-footer {
+    margin-top: 32px;
+    padding: 16px 0;
+}
+
+.bbhsecins-footer p {
+    font-size: 13px;
+    color: #50575e;
+    margin: 0;
+}
+
+.bbhsecins-footer a {
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Documentation Page CSS
+   ========================================================================== */
+.bbhsecins-docs-wrap {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.bbhsecins-check-content {
+    flex: 3;
+}
+.bbhsecins-check-sidbar {
+    flex: 1;
+}
+.bbhsecins-check-row p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+.bbhsecins-postbox {
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    position: relative;
+    min-width: 255px;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    background: #fff;
+}
+
+.bbhsecins-postbox h2 {
+    border-bottom: 1px solid #ccc;
+    font-size: 1.3rem;
+}
+
+.col-bbhsecins_sidebar_area p {
+    padding:3px 10px;
+}
+.bbhsecins-bbhsecinsrow p{
+    font-size: medium;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+.bbhsecins-bbhsecinsrow li {
+    font-size: larger;
+    padding: 5px 0;
+    line-height: 30px;
+}
+img.auth-img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+a.bbhsecinsyt-btn {
+    padding: 15px;
+    background: red;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: larger;
+}
+a.bbhsecinsyt-btn:hover {
+    padding: 15px;
+    background: rgb(196, 48, 48);
+}
+h1.bbhsecinshead {
+    line-height: 50px;
+    padding: 0;
+}
+.bbhsecins-author-box {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.plugin-author-img {
+    width: 120px;
+    height: 145px;
+    background-image: url('../img/author.png'); /* Adjusted relative path */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin:0 auto 15px auto;
+}
+.buyme-author-img {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.buyme-author-img:hover{border:1px solid #732b81}
+p.bbh-bmc-btn a {
+    text-decoration: none;
+    color: #000;
+}
+p.bbh-bmc-btn a {
+    /* Layout & Sizing */
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 25px;
+    
+    /* Colors */
+    background-color: #FFDD00; /* The signature yellow */
+    color: #000000;
+    
+    /* Border & Shape */
+    border: none;
+    border-radius: 12px; /* Smooth rounded corners */
+    
+    /* Typography */
+    text-decoration: none;
+    font-family: 'Cookie', cursive;
+    font-size: 20px;
+    font-weight: normal;
+    
+    /* Interaction */
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  p.bbh-bmc-btn a::before {
+    content: '🥛';
+    margin-right: 10px;
+
+  }
+  p.bbh-bmc-btn a:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+
+@media screen and (max-width: 782px) {
+    .bbhsecins-score-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bbhsecins-checks-table .bbhsecins-col-detail,
+    .bbhsecins-checks-table .bbhsecins-col-recommendation {
+        display: none;
+    }
+    .bbhsecins-docs-wrap {
+        flex-direction: column;
+    }
+    .bbhsecins-check-content,.bbhsecins-check-sidbar {
+        flex: 100%;
+    }
+}
