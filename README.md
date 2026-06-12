@@ -205,7 +205,7 @@ Part of the **Business Bridge Hub** ecosystem:
 
 ## 📩 Support
 
-- Website: https://jahidshah.com/
+- Website: https://businessbridgehub.com/contact/
 - WordPress Support: https://wordpress.org/support/plugin/bbh-security-insight/
 
 ---
