@@ -298,17 +298,17 @@ class Admin {
                                 
                             </p>
                             <div>
-                                <p class="bbhre-postbox bbh-bmc-btn">
+                                <p class="bbhre-postbox bbh-gsb-btn">
                                     <?php
                                         printf(
                                             wp_kses_post(
                                                 /* translators: %s: Developer support URL */
                                                 __(
-                                                    'If you found this plugin helpful, you can support the developer via - <br><a href="%s" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>',
+                                                    'This security engine is actively maintained by MdJahidShah under the Business Bridge Hub ecosystem. Continuous updates are funded through GitHub Sponsors. If you found this plugin helpful, you can support the developer - <br><br><a href="%s" target="_blank" rel="noopener noreferrer" class="button">Support Development</a>',
                                                     'bbh-security-insight'
                                                 )
                                             ),
-                                            esc_url( 'https://www.buymeacoffee.com/jahidshah' )
+                                            esc_url( 'https://github.com/sponsors/MdJahidShah/' )
                                         );
                                     ?>
                                 </p>

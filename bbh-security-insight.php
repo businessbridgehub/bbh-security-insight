@@ -13,7 +13,7 @@
  * Plugin Name:       BBH Security Insight
  * Plugin URI:        https://wordpress.org/plugins/bbh-security-insight/
  * Description:       Perform lightweight read-only security health scans on your WordPress installation. Generate professional security risk reports with actionable recommendations.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Jahid Shah
  * Author URI:        https://jahidshah.com/
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'BBHSECINS_VERSION', '1.0.0' );
+define( 'BBHSECINS_VERSION', '1.0.1' );
 
 /**
  * Plugin base path.
